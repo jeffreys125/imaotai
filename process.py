@@ -336,3 +336,50 @@ def getUserEnergyAward(mobile: str):
     # response.json().get('message') if '无法领取奖励' in response.text else "领取奖励成功"
     logging.info(
         f'领取耐力 : mobile:{mobile} :  response code : {response.status_code}, response body : {response.text}')
+
+# 获取小茅运旅行奖励
+def receiveReward(mobile: str):
+    """
+    获取小茅运
+    """
+    cookies = {
+        'MT-Device-ID-Wap': headers['MT-Device-ID'],
+        'MT-Token-Wap': headers['MT-Token'],
+        'YX_SUPPORT_WEBP': '1',
+    }
+    response = requests.post('https://h5.moutai519.com.cn/game/xmTravel/receiveReward', cookies=cookies,
+                             headers=headers, json={})
+    logging.info(
+        f'领取小茅运 : mobile:{mobile} :  response code : {response.status_code}, response body : {response.text}')
+
+
+# 分享
+def shareReward(mobile: str):
+    """
+    分享
+    """
+    cookies = {
+        'MT-Device-ID-Wap': headers['MT-Device-ID'],
+        'MT-Token-Wap': headers['MT-Token'],
+        'YX_SUPPORT_WEBP': '1',
+    }
+    response = requests.post('https://h5.moutai519.com.cn/game/xmTravel/shareReward', cookies=cookies,
+                             headers=headers, json={})
+    logging.info(
+        f'分享 : mobile:{mobile} :  response code : {response.status_code}, response body : {response.text}')
+
+
+# 开始旅行
+def startTravel(mobile: str):
+    """
+    开始旅行
+    """
+    cookies = {
+        'MT-Device-ID-Wap': headers['MT-Device-ID'],
+        'MT-Token-Wap': headers['MT-Token'],
+        'YX_SUPPORT_WEBP': '1',
+    }
+    response = requests.post('https://h5.moutai519.com.cn/game/xmTravel/startTravel', cookies=cookies,
+                             headers=headers, json={})
+    logging.info(
+        f'开始旅行 : mobile:{mobile} :  response code : {response.status_code}, response body : {response.text}')       
